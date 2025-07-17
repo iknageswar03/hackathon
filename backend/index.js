@@ -7,6 +7,7 @@ const PORT=8000;
 const app=express();
 
 const authRoutes=require('./Routes/Auth');
+const taskRoutes=require('./Routes/Task')
 
 require('dotenv').config();
 require('./db');
@@ -29,6 +30,8 @@ app.use(cors({
 
 
 app.use('/auth',authRoutes);
+app.use('/tasks',taskRoutes);
+
 
 app.get('/',(req,res)=>{
     res.json({message:"The api is working"})
