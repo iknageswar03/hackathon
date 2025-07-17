@@ -8,6 +8,7 @@ const app=express();
 
 const authRoutes=require('./Routes/Auth');
 const taskRoutes=require('./Routes/Task')
+const analyticsRoutes=require('./Routes/MachineAnalytics')
 
 require('dotenv').config();
 require('./db');
@@ -31,6 +32,7 @@ app.use(cors({
 
 app.use('/auth',authRoutes);
 app.use('/tasks',taskRoutes);
+app.use('/issues',analyticsRoutes);
 
 
 app.get('/',(req,res)=>{
