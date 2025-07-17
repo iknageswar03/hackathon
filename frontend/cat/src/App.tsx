@@ -10,6 +10,7 @@ import SafetyCheck from './pages/SafetyCheck/page';
 import PublicOnlyRoute from './Routes/PublicRoute';
 import Tasks from './pages/Dashboard/Tasks/page';
 import TrainingHub from './pages/Dashboard/Training/page';
+import MachineAnalytics from './pages/Dashboard/Analytics/page';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/safetycheck' element={<SafetyCheck />} />
         <Route path='/tasks' element={<Tasks />} />
         <Route path='/training' element={<TrainingHub />} />
+        <Route path='/analytics' element={<MachineAnalytics />} />
       </Routes>
       <ToastContainer/>
     </div>

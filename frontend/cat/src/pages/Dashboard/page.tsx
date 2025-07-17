@@ -166,17 +166,26 @@ const Dashboard = () => {
 
       {/* Main Dashboard Content */}
       <div className="flex-1 p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-        {cards.map((card) => (
-          <div
-            key={card.title}
-            onClick={() => navigate(card.route)}
-            className="cursor-pointer bg-[#1b1b1b] hover:bg-[#2a2a2a] p-6 rounded-xl border border-yellow-500 shadow-lg transition-transform hover:scale-105"
-          >
-            <div className="text-4xl mb-4">{card.emoji}</div>
-            <h2 className="text-xl font-semibold">{card.title}</h2>
-          </div>
-        ))}
+  {cards.map((card) => (
+    <div
+      key={card.title}
+      onClick={() => navigate(card.route)}
+      className="cursor-pointer relative bg-[#1b1b1b] hover:bg-[#2a2a2a] p-6 rounded-xl border border-yellow-500 shadow-xl transition-transform hover:scale-105 flex flex-col items-center justify-center text-center"
+    >
+      {/* Emoji Icon */}
+      <div className="text-5xl mb-3">{card.emoji}</div>
+
+      {/* Title */}
+      <h2 className="text-xl font-semibold text-yellow-400 mb-1">{card.title}</h2>
+
+      {/* Decorative Icon Background (optional) */}
+      <div className="absolute opacity-10 text-9xl -z-10 select-none">
+        {card.emoji}
       </div>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 };
