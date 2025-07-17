@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 
-const allowedOrigins=['http://localhost:5173'] //this frontend can use our backend
+const allowedOrigins=['http://localhost:5173',process.env.FRONTEND_URL] //this frontend can use our backend
 app.use(cors({
     origin: function(origin,callback){
         if(!origin||allowedOrigins.includes(origin)){
