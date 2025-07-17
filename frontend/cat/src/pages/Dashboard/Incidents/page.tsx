@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom"; // 👈 Add this
 
 const Incidents = () => {
   const [description, setDescription] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate(); // 👈 Initialize router navigation
 
-  // Static machine name
   const machineName = "CAT D11 Bulldozer";
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,6 +29,9 @@ const Incidents = () => {
       if (data.ok) {
         toast.success("Incident reported successfully!");
         setDescription("");
+        setTimeout(() => {
+          navigate("/dashboard"); // 👈 Go back to dashboard after success
+        }, 2000); // small delay to show the toast
       } else {
         toast.error(data.message || "Failed to report incident");
       }
@@ -73,6 +77,15 @@ const Incidents = () => {
           className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-full w-full font-semibold"
         >
           {isSubmitting ? "Reporting..." : "Report Issue"}
+        </button>
+
+        {/* 🔙 Back Button */}
+        <button
+          type="button"
+          onClick={() => navigate("/dashboard")}
+          className="mt-2 border border-yellow-500 text-yellow-400 hover:bg-yellow-700 hover:text-black px-6 py-2 rounded-full w-full font-semibold"
+        >
+          ← Back to Dashboard
         </button>
       </form>
     </div>

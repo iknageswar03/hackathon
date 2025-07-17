@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -100,7 +100,7 @@ const Dashboard = () => {
 
   // Add this near the top of your component (before `useEffect`)
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [cabinTemp, setCabinTemp] = useState("26°C"); // You can make this dynamic later
+  const [cabinTemp] = useState("26°C"); // You can make this dynamic later
 
   useEffect(() => {
     const clock = setInterval(() => {

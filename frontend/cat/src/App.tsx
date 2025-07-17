@@ -1,7 +1,5 @@
-import React from 'react'
 import SignUp from './pages/Auth/Signup'
 import { Route,Routes } from 'react-router-dom'
-import Home from './pages/Home'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Signin from './pages/Auth/Signin';
@@ -21,7 +19,6 @@ const App = () => {
         <Route path='/' element={<Navigate to="/auth/signin" />} />
         <Route path='/auth/signup' element={<PublicOnlyRoute><SignUp/></PublicOnlyRoute>}/>
         <Route path='/auth/signin' element={<PublicOnlyRoute><Signin/></PublicOnlyRoute>}/>
-        <Route path='/home' element={<Home/>}/>
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/safetycheck' element={<SafetyCheck />} />
         <Route path='/tasks' element={<Tasks />} />
