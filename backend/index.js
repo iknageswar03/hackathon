@@ -9,6 +9,7 @@ const app=express();
 const authRoutes=require('./Routes/Auth');
 const taskRoutes=require('./Routes/Task')
 const analyticsRoutes=require('./Routes/MachineAnalytics')
+const mlRoutes=require('./Routes/ml')
 
 require('dotenv').config();
 require('./db');
@@ -33,7 +34,7 @@ app.use(cors({
 app.use('/auth',authRoutes);
 app.use('/tasks',taskRoutes);
 app.use('/issues',analyticsRoutes);
-
+app.use('/ml',mlRoutes)
 
 app.get('/',(req,res)=>{
     res.json({message:"The api is working"})
@@ -43,3 +44,4 @@ app.get('/',(req,res)=>{
 app.listen(PORT,()=>{
     console.log(`server running on port ${PORT}`);
 })
+
